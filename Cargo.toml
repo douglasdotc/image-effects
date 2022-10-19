@@ -1,0 +1,26 @@
+[package]
+name = "image-effects"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Tell rust to produce a crate (library) with support for external languages:
+# So rust functions can be used in javascript:
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at 
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Help to expose rust to javascript, 
+# to let rust knows that it is communicating with javascript:
+wasm-bindgen = "0.2.83"
+# Help encode / decode base64 values:
+base64 = "0.13.0"
+# Help manipulating images:
+image = "0.23.14"
+
+# export a set of javascript function to rust:
+[dependencies.web-sys]
+version = "0.3.60"
+features =["console"]
